@@ -8,19 +8,16 @@ app.use(bodyParser.json());
 
 let tasks = [];
 
-// Listar tarefas
 app.get('/tasks', (req, res) => {
   res.json(tasks);
 });
 
-// Adicionar tarefa
 app.post('/tasks', (req, res) => {
   const newTask = { id: uuidv4(), name: req.body.name };
   tasks.push(newTask);
   res.status(201).json(newTask);
 });
 
-// Editar tarefa
 app.put('/tasks/:id', (req, res) => {
   const taskId = req.params.id;
   const taskIndex = tasks.findIndex((t) => t.id === taskId);
@@ -32,7 +29,6 @@ app.put('/tasks/:id', (req, res) => {
   }
 });
 
-// Deletar tarefa
 app.delete('/tasks/:id', (req, res) => {
   tasks = tasks.filter((t) => t.id !== req.params.id);
   res.status(204).send();
