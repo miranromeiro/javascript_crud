@@ -1,0 +1,10 @@
+body {
+    background-color: #f8f9fa;
+  }
+  
+  #taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
